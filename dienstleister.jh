@@ -1,0 +1,49 @@
+
+application {
+  config {
+    baseName dienstleister,
+    applicationType monolith,
+    packageName de.arag.dienstleister,
+    authenticationType oauth2,
+    prodDatabaseType postgresql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity LeistungKey {
+	id Integer required max(2)
+    name String required max(100)
+}
+
+entity DienstleistungKey {
+	id Integer required max(2)
+    name String required max(100)
+}
+
+relationship ManyToMany {
+  LeistungKey {dienstleistungKeys}  to DienstleistungKey
+  DienstleistungKey{dienstleisterKeys} to DienstleisterKey
+}
+
+entity DienstleisterKey {
+	id Integer required max(2)
+    name String required max(100)
+}
+
+entity DienstleistungInfoKey {
+	id Integer required max(2)
+    name String required max(100)
+}
+
+entity LeistungDienstleistungInfoKey {
+	id Integer required max(2)
+    name String required max(100)
+}
+
+
+
+entity B {}
+
+
+    
